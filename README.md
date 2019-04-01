@@ -62,4 +62,33 @@ Then use the following code to create a payment button that opens a widget. Mult
 
 ## Notification URL
 
-If a *notification URL* is provided, a confirmation receipt will be POSTed to it, for each of the first 6 confirmations.
+If a *notification URL* is provided, a confirmation receipt will be sent for each of the first 6 confirmations.
+
+The data in every POST will include:
+
+- **merchantid**
+- **confirmations** 1 to 6
+- **cointype** BTC
+- **completed** 0/1
+- **amount** Value of purchase in coin specific units
+- **epochtime** 
+- **hashed** Post data in encrypted format for validation
+
+The data may also include the following optional pass-thru values from your button:
+
+- **data-product-id** 
+- **data-invoice-id** 
+- **data-customer-id**
+
+**Notification Verification**
+
+To authenticate a payment notification, concatenate all POSTed data values except *hashed* into a single string and encrypt with HMAC/Sha256 uisng your Bitcionofamerica private key. A match confirms the integrity and authenticity of the notification.
+
+```
+PHP Example:
+
+$hash = hash_hmac("sha512", $_POST["merchantid"].$_POST["confirmations"].$_POST["cointype"].$_POST["completed"].$_POST["amount"].$_POST["epochtime"],$YOUR_SECRET_KEY);
+if( $hashed == $_POST["hashed"] ) ; // Validated!
+
+```
+               
