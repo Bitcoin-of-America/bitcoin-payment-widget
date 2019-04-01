@@ -24,6 +24,8 @@ Then use the following code to create a payment button to open a widget:
     data-price-cents="199" 
     data-price-crypto="0"
     data-product-id="123"
+    data-invoice-id="456"
+    data-customer-id="789"
     data-description="Product Name"
     data-coin-type="btc" 
 >Pay Now!</button>
@@ -31,14 +33,21 @@ Then use the following code to create a payment button to open a widget:
 
 ## Configurable Options
 
-- **merchantid** - Your BitcoinOfAmerica merchant identifier. Can be obtained by signing up for free as a merchant on [bitcoinOfAmerica](https://www.bitcoinofamerica.org)
+- **merchantid** - Your BitcoinOfAmerica merchant identifier. Can be obtained by signing up for free as a merchant at [bitcoinOfAmerica](https://www.bitcoinofamerica.org)
 - **confirmations** - The number of blockchain confirmations required before widget displays an "order complete" message, and calls the optional *complete* callback. 
 - **notifyurl** - This optional URL on your server will be notified each time a confirmation is received. Only the the first 6 payment confirmations will be handled {see **Notification URL** below}.
 - **complete** - Callback function. Called when all required confirmations have been received for payment.
 - **cancel** - Callback function. Called if customer closes the widget before receiving a payment receiving address.
-- **price_cents** - The price of the product or service that you're selling, in pennies. Set to 0 if your price is in satoshi units (crypto) instead of fiat.
-- **price_crypto** - The price of the product or service that you're selling in crypto units {see **Coin Specific Units** below}.  If your price is in satoshi units (crypto) instead of fiat, set this to 0.
-- **invoiceid** - Optional passthru value
+
+## Button Options
+
+- **data-coin-type** - Coin type for payment. Must be one of BTC, LTC, BCH, ECH, or XRP.
+- **date-price-cents** - The price of the product or service that you're selling, in pennies. Set to 0 if your price is in satoshi units (crypto) instead of fiat.
+- **data-price-crypto** - The price of the product or service that you're selling in crypto units {see **Coin Specific Units** below}.  If your price is in satoshi units (crypto) instead of fiat, set this to 0.
+- **data-description** - The product or service your customer is buying. This is displayed to your customer in the widget. 
+- **data-product-id** - Optional pass-thru value.
+- **data-invoice-id** - Optional pass-thru value.
+- **data-customer-id** - Optional pass-thru value.
 
 
 ## Coin Specific Units
