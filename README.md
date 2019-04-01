@@ -10,24 +10,24 @@ Insert the following code right before your closing <body> tag:
       merchantid: "MERCHANTID",
       confirmations: 3,
       notifyurl: "",
+      complete: function() { },
       cancel: function() { },
-      complete: function() { }
    }
 </script>   
 <script src="bcoa-widget.php"></script>
 ```
   
-Then use the following code to create a payment button to open a widget:
+Then use the following code to create a payment button that opens a widget. Multiple buttons can be used:
 
 ```
 <button 
+    data-coin-type="BTC" 
     data-price-cents="199" 
     data-price-crypto="0"
+    data-description="Product Name"
     data-product-id="123"
     data-invoice-id="456"
     data-customer-id="789"
-    data-description="Product Name"
-    data-coin-type="btc" 
 >Pay Now!</button>
 ```
 
@@ -53,10 +53,13 @@ Then use the following code to create a payment button to open a widget:
 ## Coin Specific Units
 
 ```
-1 BTC (Bitcoin)      = 100,000,000 (1e8) satoshi
-1 LTC (Litecoin)     = 100,000,000 (1e8) photons
-1 BCH (Bitcoin Cash) = 100,000,000 (1x8) satoshi
-1 ETH (Ethereum)     = 1,000,000,000,000,000,000 wei
-1 XRP (Ripple)       = 1,000,000 (1e6) drops
+1 BTC (Bitcoin)      = 100000000 (1e8) satoshi
+1 LTC (Litecoin)     = 100000000 (1e8) photons
+1 BCH (Bitcoin Cash) = 100000000 (1x8) satoshi
+1 ETH (Ethereum)     = 1000000000000000000 wei
+1 XRP (Ripple)       = 1000000 (1e6) drops
 ```
-      
+
+## Notification URL
+
+If a *notification URL* is provided, a confirmation receipt will be POSTed to it, for each of the first 6 confirmations.
