@@ -3,7 +3,7 @@ Accept cryptocoin payments on any website with a few lines of code. Powered by B
 
 ## Quick Start
 
-Insert the following code right before your closing <body> tag:
+Insert the following code into your webpage's HTML right before the closing <body> tag:
 ```
 <script>
    bcoa_options = {
