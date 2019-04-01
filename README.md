@@ -14,7 +14,7 @@ Insert the following code right before your closing <body> tag:
       cancel: function() { },
    }
 </script>   
-<script src="bcoa-widget.php"></script>
+<script src="https://www.bitcoinofamerica.org/widget/"></script>
 ```
   
 Then use the following code to create a payment button that opens a widget. Multiple buttons can be used:
@@ -66,7 +66,7 @@ If a *notification URL* is provided, a confirmation receipt will be sent for eac
 
 The data in every POST will include:
 
-- **merchantid**
+- **merchantid** - Your BitcoinOfAmrica merchant id. 
 - **confirmations** - Number of confirmations. Should contain a value from 1 to 6
 - **cointype** - Possible values are BTC, LTC, BCH, ETH, XRP
 - **completed** - Will be 0 until the desired number of confirmations have been received, according to the *confirmations* specified in your widget's Configurable Options.
@@ -80,7 +80,7 @@ The data may also include the following optional pass-thru values from your butt
 - **data-invoice-id** 
 - **data-customer-id**
 
-**Notification Verification**
+## Notification Verification
 
 To authenticate a payment notification, concatenate all POSTed data values except *hashed* and encrypt with HMAC/Sha256 uisng your Bitcionofamerica Secret Key. A match confirms the integrity and authenticity of the notification.
 
