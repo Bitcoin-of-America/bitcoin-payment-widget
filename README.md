@@ -67,12 +67,12 @@ If a *notification URL* is provided, a confirmation receipt will be sent for eac
 The data in every POST will include:
 
 - **merchantid**
-- **confirmations** 1 to 6
-- **cointype** BTC
-- **completed** 0/1
-- **amount** Value of purchase in coin specific units
-- **epochtime** 
-- **hashed** Post data in encrypted format for validation
+- **confirmations** - Number of confirmations. Should contain a value from 1 to 6
+- **cointype** - Possible values are BTC, LTC, BCH, ETH, XRP
+- **completed** - Will be 0 until the desired number of confirmations have been received, according to the *confirmations* specified in your widget's Configurable Options.
+- **amount** - Value of purchase in coin specific units
+- **epochtime** - Timestamp. The number of milliseconds since 1970
+- **hashed** - POST data in encrypted format for validation. See *Notificication Verificatino* below.
 
 The data may also include the following optional pass-thru values from your button:
 
@@ -82,7 +82,7 @@ The data may also include the following optional pass-thru values from your butt
 
 **Notification Verification**
 
-To authenticate a payment notification, concatenate all POSTed data values except *hashed* into a single string and encrypt with HMAC/Sha256 uisng your Bitcionofamerica private key. A match confirms the integrity and authenticity of the notification.
+To authenticate a payment notification, concatenate all POSTed data values except *hashed* and encrypt with HMAC/Sha256 uisng your Bitcionofamerica Secret Key. A match confirms the integrity and authenticity of the notification.
 
 ```
 PHP Example:
