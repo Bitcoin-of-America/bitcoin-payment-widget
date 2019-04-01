@@ -5,14 +5,15 @@ Accept cryptocoin payments on any website with a few lines of code. Powered by B
 
 Insert the following code right before your closing <body> tag:
 ```
-bcoa_options = {
-   merchantid: "MERCHANTID",
-   customerid: "",
-   confirmations: 3,
-   notifyurl: "",
-   cancel: function() { },
-   complete: function() { }
-}
+<script>
+   bcoa_options = {
+      merchantid: "MERCHANTID",
+      confirmations: 3,
+      notifyurl: "",
+      cancel: function() { },
+      complete: function() { }
+   }
+</script>   
 <script src="bcoa-widget.php"></script>
 ```
   
@@ -31,13 +32,13 @@ Then use the following code to create a payment button to open a widget:
 ## Configurable Options
 
 - **merchantid** - Your BitcoinOfAmerica merchant identifier. Can be obtained by signing up for free as a merchant on [bitcoinOfAmerica](https://www.bitcoinofamerica.org)
-- **price_cents** - The price of the product or service that you're selling in pennies. Set to 0 if your price is in satoshi units (crypto) instead of fiat.
-- **price_crypto** - The price of the product or service that you're selling in crypto units {see **Coin Specific Units** below}.  Set to 0 if your price is in satoshi units (crypto) instead of fiat.
-- **confirmations** - The number of confirmations required before widget displays order complete message and calls the optional *complete* callback. 
-- **notifyurl** - This URL on your server will be notified with the first 6 payment confirmations only {see **Notification URL** below}.
-- **customerid** - Optional passthru value
-- **invoiceid** - Optional passthru value
+- **confirmations** - The number of blockchain confirmations required before widget displays an "order complete" message, and calls the optional *complete* callback. 
+- **notifyurl** - This optional URL on your server will be notified each time a confirmation is received. Only the the first 6 payment confirmations will be handled {see **Notification URL** below}.
+- **complete** - Callback function. Called when all required confirmations have been received for payment.
 - **cancel** - Callback function. Called if customer closes the widget before receiving a payment receiving address.
+- **price_cents** - The price of the product or service that you're selling, in pennies. Set to 0 if your price is in satoshi units (crypto) instead of fiat.
+- **price_crypto** - The price of the product or service that you're selling in crypto units {see **Coin Specific Units** below}.  If your price is in satoshi units (crypto) instead of fiat, set this to 0.
+- **invoiceid** - Optional passthru value
 
 
 ## Coin Specific Units
