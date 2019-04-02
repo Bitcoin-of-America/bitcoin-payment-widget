@@ -94,3 +94,6 @@ if( $hashed == $_POST["hashed"] ) ; // Validated!
 
 ```
                
+## Langauge Translation
+
+All phrases used by the widget are stored in the CSS file. You can override any of these styles.
