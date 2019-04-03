@@ -8,6 +8,7 @@ Insert the following code into your webpage's HTML right before the closing <bod
 <script>
    bcoa_options = {
       merchantid: "MERCHANTID",
+      store: "Your Website",
       confirmations: 3,
       notifyurl: "",
       complete: function() { },
@@ -35,6 +36,7 @@ Then use the following code to create a payment button that opens a widget. Mult
 ## Configurable Options
 
 - **merchantid** - Your BitcoinOfAmerica merchant identifier. Can be obtained by signing up for free as a merchant at [bitcoinOfAmerica](https://www.bitcoinofamerica.org)
+- **store** - Your store or website name for display in the widget.
 - **confirmations** - The number of blockchain confirmations required before widget displays an "order complete" message, and calls the optional *complete* callback. 
 - **notifyurl** - This optional URL on your server will be notified each time a confirmation is received. Only the the first 6 payment confirmations will be handled {see **Notification URL** below}.
 - **complete** - Callback function. Called when all required confirmations have been received for payment.
