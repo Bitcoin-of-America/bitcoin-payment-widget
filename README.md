@@ -40,7 +40,7 @@ Then use the following code to create a payment button that opens a widget. Mult
 - **confirmations** - The number of blockchain confirmations required before widget displays an "order complete" message, and calls the optional *complete* callback. 
 - **notifyurl** - This optional URL on your server will be notified each time a confirmation is received. Only the the first 6 payment confirmations will be handled {see **Notification URL** below}.
 - **complete** - Callback function. Called when all required confirmations have been received for payment.
-- **complete** - Callback function. Passes number of confirmations received so far.
+- **confirmation** - Callback function. Passes number of confirmations received so far.
 - **cancel** - Callback function. Called if customer closes the widget after receiving a payment receiving address.
 
 ## Button Options
