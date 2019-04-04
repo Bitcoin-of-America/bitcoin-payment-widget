@@ -1,5 +1,5 @@
 # bitcoin-payment-widget
-Accept cryptocoin payments on any website with a few lines of code. Powered by BitcoinOfAmerica.org
+Accept cryptocoin payments on any website with a few lines of code. Cross-browser and mobile-friendly with no dependencies. Powered by BitcoinOfAmerica.org
 
 ## Quick Start
 
