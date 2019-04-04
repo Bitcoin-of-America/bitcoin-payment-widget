@@ -76,7 +76,7 @@ The data in every POST will include:
 - **completed** - Will be 0 until the desired number of confirmations have been received, according to the *confirmations* specified in your widget's Configurable Options.
 - **amount** - Value of purchase in coin specific units
 - **epochtime** - Timestamp. The number of milliseconds since 1970
-- **hashed** - POST data in encrypted format for validation. See *Notificication Verificatino* below.
+- **hashed** - POST data in encrypted format for validation. See *Notificication Verification* below.
 
 The data may also include the following optional pass-thru values from your button:
 
@@ -98,4 +98,13 @@ if( $hashed == $_POST["hashed"] ) ; // Validated!
                
 ## Langauge Translation
 
-All phrases used by the widget are stored in the CSS file. You can override any of these styles.
+All phrases used by the widget are stored in the same CSS file that you use to customize your widget's cosmetic settings. You can modify this optional CSS file to override any of the default phrases. Download the .css file in the src folder for the complete list of phrases. 
+
+**Example static phrases:**
+
+#bcoaQRLabel:before { content: "Please send payment to:";}
+
+**Example dynamic phrases used by the widget:**
+
+#bcoa-LANGUAGE-NetworkError { content: "Network Error"; }
+
