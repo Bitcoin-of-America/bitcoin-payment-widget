@@ -16,6 +16,7 @@ Insert the following code into your webpage's HTML right before the closing <bod
       cancel: function() { },
    }
 </script>   
+<link rel="stylesheet" href="https://www.bitcoinofamerica.org/widget/bcoa-widget.css">
 <script src="https://www.bitcoinofamerica.org/widget/"></script>
 ```
   
