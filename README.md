@@ -43,6 +43,7 @@ Then use the following code to create a payment button that opens a widget. Mult
 - **complete** - Callback function. Called when all required confirmations have been received for payment.
 - **confirmation** - Callback function. Passes number of confirmations received so far.
 - **cancel** - Callback function. Called if customer closes the widget after receiving a payment receiving address.
+- **LANGUAGE TRANSLATIONS** - See **Language Translation** below for additional options
 
 ## Button Options
 
@@ -99,13 +100,12 @@ if( $hashed == $_POST["hashed"] ) ; // Validated!
                
 ## Langauge Translation
 
-All phrases used by the widget are stored in the same CSS file that you use to customize your widget's cosmetic settings. You can modify this optional CSS file to override any of the default phrases. Download the .css file in the src folder for the complete list of phrases. 
+The default phrases used by the widget can be changed using the following bcoa_options properties: 
 
-**Example static phrases:**
-
-#bcoaQRLabel:before { content: "Please send payment to:";}
-
-**Example dynamic phrases used by the widget:**
-
-#bcoa-LANGUAGE-NetworkError { content: "Network Error"; }
-
+- ** coaLangAreYouSure:** "Are you sure you want to close this window while your payment is being processed?"
+- ** bcoaLangError:** "Error processing order. Please contact site owner."
+- ** bcoaLangConfirmations:** "Confirmations ..."
+- ** bcoaLangComplete:** "&#10004;&nbsp;Payment Complete"
+- ** bcoaLangPay:** "Pay"
+- ** bcoaLangIn:** "In"
+	
