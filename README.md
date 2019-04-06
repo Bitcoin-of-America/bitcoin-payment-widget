@@ -102,10 +102,10 @@ if( $hashed == $_POST["hashed"] ) ; // Validated!
 
 The default phrases used by the widget can be changed using the following bcoa_options properties: 
 
-- ** coaLangAreYouSure:** "Are you sure you want to close this window while your payment is being processed?"
-- ** bcoaLangError:** "Error processing order. Please contact site owner."
-- ** bcoaLangConfirmations:** "Confirmations ..."
-- ** bcoaLangComplete:** "&#10004;&nbsp;Payment Complete"
-- ** bcoaLangPay:** "Pay"
-- ** bcoaLangIn:** "In"
+- **coaLangAreYouSure:** "Are you sure you want to close this window while your payment is being processed?"
+- **bcoaLangError:** "Error processing order. Please contact site owner."
+- **bcoaLangConfirmations:** "Confirmations ..."
+- **bcoaLangComplete:** "&#10004;&nbsp;Payment Complete"
+- **bcoaLangPay:** "Pay"
+- **bcoaLangIn:** "In"
 	
