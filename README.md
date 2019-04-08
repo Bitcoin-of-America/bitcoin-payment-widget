@@ -93,7 +93,7 @@ To authenticate a payment notification, concatenate all POSTed data values excep
 ```
 PHP Example:
 
-$hash = hash_hmac("sha512", $_POST["merchantid"].$_POST["confirmations"].$_POST["cointype"].$_POST["completed"].$_POST["amount"].$_POST["epochtime"],$YOUR_SECRET_KEY);
+$hash = hash_hmac("sha512", $_POST["merchantid"].$_POST["confirmations"].$_POST["cointype"].$_POST["completed"].$_POST["amount"].$_POST["epochtime"].$_POST["data-product-id"].$_POST["data-invoice-id"].$_POST["data-customer-id"], $YOUR_SECRET_KEY);
 if( $hashed == $_POST["hashed"] ) ; // Validated!
 
 ```
