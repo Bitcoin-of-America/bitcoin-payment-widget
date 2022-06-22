@@ -28,7 +28,6 @@ Then use the following code to create a payment button that opens a widget. Mult
     data-price-cents="199" 
     data-product="Product Name"
     data-description="Description or Instructions"
-    data-success="Your payment has been received. We'll be in touch."
     data-product-id="123"
     data-invoice-id="456"
     data-customer-id="789"
@@ -52,7 +51,6 @@ Then use the following code to create a payment button that opens a widget. Mult
 - **date-price-cents** - The price of the product or service that you're selling, in pennies. Set to 0 if your price is in satoshi units (crypto) instead of fiat.
 - **data-product** - The product name your customer is buying. 
 - **data-description** - The product or service your customer is buying. This is displayed to your customer in the widget. 
-- **data-success** - The message displayed when the payment is succesfull. 
 - **data-product-id** - Optional pass-thru value.
 - **data-invoice-id** - Optional pass-thru value.
 - **data-customer-id** - Optional pass-thru value.
