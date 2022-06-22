@@ -17,7 +17,7 @@ Insert the following code into your webpage's HTML right before the closing <bod
    }
 </script>   
 <link rel="stylesheet" href="https://www.bitcoinofamerica.org/widget/bcoa-widget.css">
-<script src="https://www.bitcoinofamerica.org/widget/"></script>
+<script id='bcoa' src="https://www.bitcoinofamerica.org/widget/bcoa-widget.js"></script>
 ```
   
 Then use the following code to create a payment button that opens a widget. Multiple buttons can be used:
@@ -26,8 +26,9 @@ Then use the following code to create a payment button that opens a widget. Mult
 <button 
     data-coin-type="BTC" 
     data-price-cents="199" 
-    data-price-crypto="0"
-    data-description="Product Name"
+    data-product="Product Name"
+    data-description="Description or Instructions"
+    data-success="Your payment has been received. We'll be in touch."
     data-product-id="123"
     data-invoice-id="456"
     data-customer-id="789"
@@ -36,10 +37,10 @@ Then use the following code to create a payment button that opens a widget. Mult
 
 ## Configurable Options
 
-- **merchantid** - Your BitcoinOfAmerica merchant identifier. Can be obtained by signing up for free as a merchant at [bitcoinOfAmerica](https://www.bitcoinofamerica.org)
+- **merchantid** - Your BitcoinOfAmerica merchant identifier.
 - **company** - Your store or website name for display in the widget.
 - **confirmations** - The number of blockchain confirmations required before widget displays an "order complete" message, and calls the optional *complete* callback. 
-- **notifyurl** - This optional URL on your server will be notified each time a confirmation is received. Only the the first 6 payment confirmations will be handled {see **Notification URL** below}.
+- **notifyurl** - This optional URL on your server will be notified each time a confirmation is received. {see **Notification URL** below}.
 - **complete** - Callback function. Called when all required confirmations have been received for payment.
 - **confirmation** - Callback function. Passes number of confirmations received so far.
 - **cancel** - Callback function. Called if customer closes the widget after receiving a payment receiving address.
@@ -49,8 +50,9 @@ Then use the following code to create a payment button that opens a widget. Mult
 
 - **data-coin-type** - Coin type for payment. Must be one of BTC, LTC, BCH, ECH, or XRP.
 - **date-price-cents** - The price of the product or service that you're selling, in pennies. Set to 0 if your price is in satoshi units (crypto) instead of fiat.
-- **data-price-crypto** - The price of the product or service that you're selling in crypto units {see **Coin Specific Units** below}.  If your price is in satoshi units (crypto) instead of fiat, set this to 0.
+- **data-product** - The product name your customer is buying. 
 - **data-description** - The product or service your customer is buying. This is displayed to your customer in the widget. 
+- **data-success** - The message displayed when the payment is succesfull. 
 - **data-product-id** - Optional pass-thru value.
 - **data-invoice-id** - Optional pass-thru value.
 - **data-customer-id** - Optional pass-thru value.
@@ -68,7 +70,7 @@ Then use the following code to create a payment button that opens a widget. Mult
 
 ## Notification URL
 
-If a *notification URL* is provided, a confirmation receipt will be sent for each of the first 6 confirmations.
+If a *notification URL* is provided, a confirmation receipt will be sent when all required confirmations have been received.
 
 The data in every POST will include:
 
@@ -102,10 +104,11 @@ if( $hashed == $_POST["hashed"] ) ; // Validated!
 
 The default phrases used by the widget can be changed using the following bcoa_options properties: 
 
-- **coaLangAreYouSure:** "Are you sure you want to close this window while your payment is being processed?"
+- **bcoaLangAreYouSure:** "Are you sure you want to close this window while your payment is being processed?"
 - **bcoaLangError:** "Error processing order. Please contact site owner."
 - **bcoaLangConfirmations:** "Confirmations ..."
+- **bcoaLangAwaitingPayment:** "Waiting for Payment ..."
 - **bcoaLangComplete:** "&#10004;&nbsp;Payment Complete"
-- **bcoaLangPay:** "Pay"
-- **bcoaLangIn:** "In"
+- **bcoaLangPay:** "Transfer"
+- **bcoaLangIn:** "in"
 	
